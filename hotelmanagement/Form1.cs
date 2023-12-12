@@ -56,29 +56,39 @@ namespace hotelmanagement
         
         public bool printAll(ref hotel h, ref TextBox t)
         {
-            printNewLine(ref this.textBox1, 1);
+            printNewLine(ref this.textBox1, 3);
             t.Text += h.printHotel();
-            printNewLine(ref this.textBox1, 1);
+            printNewLine(ref this.textBox1, 2);
             for (int i = 0; i < h.camere.Count; i++)
             {
                 t.Text += h.camere[i].printCamera();
                 printNewLine(ref this.textBox1, 1);
             }
+            printNewLine(ref this.textBox1, 2);
             for (int i = 0; i < h.clienti.Count; i++)
             {
                 t.Text += h.clienti[i].printClient();
                 printNewLine(ref this.textBox1, 1);
             }
+            printNewLine(ref this.textBox1, 2);
             for (int i = 0; i < h.rezervari.Count; i++)
             {
                 t.Text += h.rezervari[i].printRezervare();
                 printNewLine(ref this.textBox1, 1);
             }
+            printNewLine(ref this.textBox1, 2);
             for (int i = 0; i < h.perechicamereclienti.Count; i++)
             {
                 t.Text += h.perechicamereclienti[i].printPair();
                 printNewLine(ref this.textBox1, 1);
+                t.Text += h.camere[h.perechicamereclienti[i].a].printCamera();
+                printNewLine(ref this.textBox1, 1);
+                t.Text += h.clienti[h.perechicamereclienti[i].b].printClient();
+                printNewLine(ref this.textBox1, 1);
             }
+            printNewLine(ref this.textBox1, 2);
+
+
             return true;
         }
         private void Form1_Load(object sender, EventArgs e)
